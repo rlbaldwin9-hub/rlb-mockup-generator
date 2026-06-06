@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>RLBDesigns &mdash; Product Listing Mockup Generator</title>
+<title>RLBDesigns — Product Listing Mockup Generator</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Georgia,serif;background:#FDF8F2;color:#3D2B1F;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
@@ -12,14 +12,15 @@ body{font-family:Georgia,serif;background:#FDF8F2;color:#3D2B1F;height:100vh;dis
 .hdr-sub{font-size:9px;color:#C4A882;letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
 .hdr-pill{background:#D4A96A;color:#3D2B1F;font-size:10px;font-weight:700;padding:3px 12px;border-radius:20px;}
 .app-body{display:flex;flex:1;overflow:hidden;}
-.sidebar{width:300px;min-width:300px;background:#fff;border-right:1px solid #E8D8C4;overflow-y:auto;padding:14px;flex-shrink:0;}
+.sidebar{width:320px;min-width:320px;background:#fff;border-right:1px solid #E8D8C4;overflow-y:auto;padding:14px;flex-shrink:0;}
 .sec{font-size:9px;font-weight:700;color:#3D2B1F;text-transform:uppercase;letter-spacing:2px;border-bottom:1px solid #E8D8C4;padding-bottom:4px;margin:14px 0 7px;display:flex;align-items:center;gap:5px;}
 .sec.first{margin-top:0;}
 .dot{width:6px;height:6px;border-radius:50%;background:#D4A96A;flex-shrink:0;}
 .fl{display:block;font-size:10px;font-weight:700;color:#7A5C3E;text-transform:uppercase;letter-spacing:1px;margin:8px 0 3px;}
 input[type=text],textarea,select{width:100%;padding:7px 9px;border:1px solid #E8D8C4;border-radius:5px;font-family:Georgia,serif;font-size:12px;color:#3D2B1F;background:#FDF8F2;outline:none;}
-input.short{width:110px;}
+input.short{width:130px;}
 textarea{resize:vertical;min-height:72px;}
+textarea.tall{min-height:110px;}
 .ptabs{display:flex;gap:3px;margin-bottom:10px;}
 .ptab{flex:1;padding:6px 3px;text-align:center;font-size:11px;font-weight:700;border:1px solid #E8D8C4;border-radius:5px;cursor:pointer;background:#FDF8F2;color:#7A5C3E;font-family:Georgia,serif;}
 .ptab.on{background:#3D2B1F;color:#D4A96A;border-color:#3D2B1F;}
@@ -29,40 +30,57 @@ textarea{resize:vertical;min-height:72px;}
 .lc-icon{font-size:16px;margin-bottom:2px;}
 .lc-name{font-size:10px;font-weight:700;}
 .lc-desc{font-size:9px;color:#7A5C3E;margin-top:1px;}
+/* BADGE SYSTEM */
+.badge-section{margin-top:6px;}
+.badge-cat-tabs{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:8px;}
+.bct{padding:4px 9px;border:1px solid #E8D8C4;border-radius:20px;font-size:9px;font-weight:700;cursor:pointer;background:#FDF8F2;color:#7A5C3E;font-family:Georgia,serif;}
+.bct.on{background:#3D2B1F;color:#D4A96A;border-color:#3D2B1F;}
 .badges{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;}
 .badge{padding:3px 9px;border:1px solid #E8D8C4;border-radius:20px;font-size:9px;font-weight:700;cursor:pointer;background:#FDF8F2;color:#7A5C3E;font-family:Georgia,serif;user-select:none;}
 .badge.on{background:#2D6A4F;border-color:#2D6A4F;color:#fff;}
-/* SWATCH GROUPS */
+/* IMAGE SHAPE PICKER */
+.shape-picker{margin-top:6px;}
+.shape-opts{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px;}
+.shape-opt{border:1px solid #E8D8C4;border-radius:6px;padding:5px 7px;cursor:pointer;background:#FDF8F2;text-align:center;display:flex;flex-direction:column;align-items:center;gap:3px;}
+.shape-opt.on{border:2px solid #2D6A4F;background:#E1F5EE;}
+.shape-thumb{background:#C4A882;border-radius:2px;}
+.shape-lbl{font-size:9px;font-weight:700;color:#3D2B1F;}
+.shape-ratio{font-size:8px;color:#7A5C3E;}
+/* COLOR SWATCHES */
 .swatch-group-label{font-size:9px;font-weight:700;color:#7A5C3E;text-transform:uppercase;letter-spacing:1px;margin:8px 0 4px;}
 .swatches{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px;}
 .sw{width:22px;height:22px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .15s;flex-shrink:0;}
 .sw.on{border-color:#3D2B1F;transform:scale(1.25);}
 .scheme-label{font-size:10px;color:#7A5C3E;margin-top:6px;}
+/* LAYOUT FIELDS */
+.layout-fields{background:#F9F4ED;border:1px solid #E8D8C4;border-radius:8px;padding:10px 12px;margin-top:8px;}
+.lf-title{font-size:10px;font-weight:700;color:#2D6A4F;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
+/* BUTTONS */
 .btn-gen{width:100%;padding:11px;background:#2D6A4F;color:#fff;border:none;border-radius:7px;font-family:Georgia,serif;font-size:13px;font-weight:700;cursor:pointer;margin-top:12px;}
 .btn-gen:hover{background:#1D5C3F;}
 .btn-spec{width:100%;padding:9px;background:#F5EDD8;color:#3D2B1F;border:1px solid #D4A96A;border-radius:7px;font-family:Georgia,serif;font-size:12px;font-weight:700;cursor:pointer;margin-top:6px;}
-.btn-spec:hover{background:#D4A96A;color:#fff;}
-.btn-outline{padding:6px 11px;background:transparent;color:#3D2B1F;border:1px solid #C8B89A;border-radius:5px;font-family:Georgia,serif;font-size:11px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;}
-.btn-outline:hover{border-color:#3D2B1F;background:#FDF8F2;}
+.btn-outline{padding:6px 11px;background:#fff;color:#3D2B1F;border:1px solid #C8B89A;border-radius:5px;font-family:Georgia,serif;font-size:11px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;line-height:1.4;}
+.btn-outline:hover{border-color:#3D2B1F;}
 .btn-jpg{padding:6px 11px;background:#D4A96A;color:#3D2B1F;border:none;border-radius:5px;font-family:Georgia,serif;font-size:11px;font-weight:700;cursor:pointer;}
-.btn-jpg:hover{background:#C08B3A;color:#fff;}
+.btn-jpg:disabled{opacity:.6;cursor:wait;}
 .specbox{background:#F3E5F9;border:1px solid #C878E0;border-radius:8px;padding:12px;margin-top:10px;display:none;}
 .specbox pre{font-family:'Courier New',monospace;font-size:10px;color:#3D2B1F;line-height:1.6;white-space:pre-wrap;max-height:220px;overflow-y:auto;}
 .btn-copy{background:#7A1FA0;color:#fff;border:none;padding:6px 14px;border-radius:5px;font-size:11px;font-weight:700;cursor:pointer;margin-top:7px;font-family:Georgia,serif;}
+/* MAIN */
 .main{flex:1;display:flex;flex-direction:column;overflow:hidden;}
 .mtabs{display:flex;border-bottom:1px solid #E8D8C4;padding:8px 16px 0;background:#fff;flex-shrink:0;}
-.mtab{padding:7px 16px;font-size:11px;font-weight:700;font-family:Georgia,serif;cursor:pointer;background:transparent;border:none;color:#7A5C3E;border-bottom:2px solid transparent;white-space:nowrap;}
+.mtab{padding:7px 14px;font-size:11px;font-weight:700;font-family:Georgia,serif;cursor:pointer;background:transparent;border:none;color:#7A5C3E;border-bottom:2px solid transparent;white-space:nowrap;}
 .mtab.on{color:#2D6A4F;border-bottom-color:#2D6A4F;}
 .tab-panel{flex:1;overflow:hidden;display:flex;flex-direction:column;}
 .tab-panel.hidden{display:none;}
-.preview-bar{background:#F9F4ED;border-bottom:1px solid #E8D8C4;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.preview-bar{background:#F9F4ED;border-bottom:1px solid #E8D8C4;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;gap:8px;flex-wrap:wrap;}
 .preview-label{font-size:10px;font-weight:700;color:#7A5C3E;text-transform:uppercase;letter-spacing:1px;}
 .exp-btns{display:flex;gap:6px;align-items:center;}
 .preview-canvas{background:#E2DDD6;padding:22px 14px;display:flex;justify-content:center;align-items:flex-start;flex:1;overflow-y:auto;}
-.preview-wrap{width:100%;max-width:560px;}
+.preview-wrap{width:100%;max-width:580px;}
 .placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:340px;gap:12px;color:#B0A090;text-align:center;width:100%;}
 .ph-icon{font-size:44px;opacity:.2;}
-.ph-text{max-width:240px;line-height:1.7;font-size:13px;}
+.ph-text{max-width:260px;line-height:1.7;font-size:13px;}
 .specs-panel{flex:1;overflow-y:auto;padding:16px;}
 .spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:8px;margin-bottom:16px;}
 .spec-card{background:#FDF8F2;border:1px solid #E8D8C4;border-radius:7px;padding:10px 12px;}
@@ -84,16 +102,16 @@ textarea{resize:vertical;min-height:72px;}
 .order-box{background:#FDF0D5;border:1px solid #D4A96A;border-radius:8px;padding:12px 16px;}
 .order-box h4{font-size:12px;color:#A0720A;margin-bottom:7px;font-family:Georgia,serif;}
 .order-box li{font-size:11px;color:#3D2B1F;line-height:2;margin-left:16px;}
-/* download status */
-.dl-status{font-size:10px;color:#2D6A4F;margin-top:6px;display:none;font-style:italic;}
+.dl-note{font-size:10px;color:#2D6A4F;padding:4px 14px;display:none;font-style:italic;}
 </style>
 </head>
 <body>
 <div class="hdr">
   <div><div class="hdr-brand">&#10022; RLBDesigns</div><div class="hdr-sub">Product Listing Mockup Generator</div></div>
-  <div class="hdr-pill">v1.2 &middot; 2026</div>
+  <div class="hdr-pill">v1.4 &middot; 2026</div>
 </div>
 <div class="app-body">
+<!-- SIDEBAR -->
 <div class="sidebar">
   <div class="sec first"><span class="dot"></span>Platform</div>
   <div class="ptabs">
@@ -101,42 +119,67 @@ textarea{resize:vertical;min-height:72px;}
     <div class="ptab" data-p="ebay" onclick="setPlatform(this)">eBay</div>
     <div class="ptab" data-p="website" onclick="setPlatform(this)">Website</div>
   </div>
+
   <div class="sec"><span class="dot"></span>Product Info</div>
   <label class="fl">Title</label>
   <input type="text" id="f-title" placeholder="e.g. Twin Chick Birthday Invitations"/>
   <label class="fl">Subtitle / Tagline</label>
-  <input type="text" id="f-sub" placeholder="Boy &amp; Girl &middot; Personalized &middot; Instant Download"/>
-  <label class="fl">Price</label>
-  <input type="text" id="f-price" class="short" placeholder="$4.99"/>
+  <input type="text" id="f-sub" placeholder="Personalized &middot; Instant Download"/>
+  <label class="fl">Price <span style="font-weight:400;font-style:italic;text-transform:none;">(type FREE if applicable)</span></label>
+  <input type="text" id="f-price" class="short" placeholder="$4.99 or FREE"/>
   <label class="fl">Product Format</label>
-  <select id="f-format">
+  <select id="f-format" onchange="onFormatChange()">
     <option value="">&#8212; Select Format &#8212;</option>
-    <option>Digital Download (PDF)</option>
-    <option>Digital Download (JPG/PNG)</option>
-    <option>Physical Print</option>
-    <option>Canva Template</option>
-    <option>Children's Picture Book</option>
-    <option>Cookbook / Recipe Book</option>
-    <option>Coloring Book</option>
-    <option>Graphic Novel</option>
-    <option>Middle-Grade Novel</option>
+    <optgroup label="&#128196; Digital Downloads">
+      <option value="dd-pdf">Digital Download (PDF)</option>
+      <option value="dd-jpg">Digital Download (JPG / PNG)</option>
+      <option value="dd-zip">Digital Download (.ZIP file)</option>
+      <option value="dd-canva">Canva Template Access</option>
+    </optgroup>
+    <optgroup label="&#128216; Physical Products">
+      <option value="phys-book">Physical Print Book</option>
+      <option value="phys-print">Physical Print (Other)</option>
+    </optgroup>
+    <optgroup label="&#128279; App / URL Access">
+      <option value="app-free">AI App URL &#8212; Free Access</option>
+      <option value="app-paid">AI App URL &#8212; Paid Access</option>
+      <option value="app-sub">AI App URL &#8212; Subscription</option>
+      <option value="app-bundle">AI App Bundle (Free + Paid)</option>
+    </optgroup>
   </select>
+
   <label class="fl">What's Included (one per line)</label>
-  <textarea id="f-inc">2 Invitation Designs (Boy + Girl)
+  <textarea id="f-inc" class="tall">2 Invitation Designs (Boy + Girl)
 High-Res Print-Ready PDF
 Instant Download After Purchase
 7x5 Horizontal Format
 Fully Personalized Text</textarea>
+
+  <!-- BADGES with category tabs -->
   <div class="sec"><span class="dot"></span>Feature Badges</div>
-  <div class="badges" id="badge-row"></div>
+  <div class="badge-section">
+    <div class="badge-cat-tabs" id="badge-cat-tabs"></div>
+    <div class="badges" id="badge-row"></div>
+  </div>
+
+  <!-- LAYOUT -->
   <div class="sec"><span class="dot"></span>Layout Template</div>
   <div class="lgrid" id="layout-grid"></div>
+  <div class="layout-fields" id="layout-fields"></div>
+
+  <!-- IMAGE SHAPE PICKER -->
+  <div class="sec"><span class="dot"></span>Product Image Shape</div>
+  <div style="font-size:10px;color:#7A5C3E;font-style:italic;margin-bottom:4px;">Affects image placeholder in Hero, Lifestyle &amp; Close-Up layouts</div>
+  <div class="shape-opts" id="shape-opts"></div>
+
+  <!-- COLOR -->
   <div class="sec"><span class="dot"></span>Color Scheme</div>
   <div class="swatch-group-label">&#9670; Classic</div>
   <div class="swatches" id="sw-classic"></div>
   <div class="swatch-group-label">&#9670; Pastels</div>
   <div class="swatches" id="sw-pastel"></div>
   <div class="scheme-label">Selected: <strong id="scheme-name">Forest Green</strong></div>
+
   <button class="btn-gen" onclick="generate()">&#9654; Generate Listing Image</button>
   <button class="btn-spec" onclick="getSpec()">&#128196; Get Canva Build Spec</button>
   <div class="specbox" id="specbox">
@@ -145,6 +188,9 @@ Fully Personalized Text</textarea>
     <button class="btn-copy" id="copy-btn" onclick="copySpec()">Copy to Clipboard</button>
   </div>
 </div>
+<!-- END SIDEBAR -->
+
+<!-- MAIN -->
 <div class="main">
   <div class="mtabs">
     <button class="mtab on" data-t="build" onclick="setTab(this)">&#128444; Preview &amp; Export</button>
@@ -155,16 +201,16 @@ Fully Personalized Text</textarea>
     <div class="preview-bar">
       <span class="preview-label" id="preview-label">Preview &middot; Etsy &middot; Hero / Main</span>
       <div class="exp-btns" id="exp-btns" style="display:none;">
-        <a class="btn-outline" id="svg-link" download="RLBDesigns_listing.svg">&#8595; SVG</a>
+        <button class="btn-outline" onclick="dlSVG()">&#8595; SVG</button>
         <button class="btn-jpg" id="jpg-btn" onclick="dlJPG()">&#8595; JPG</button>
         <button class="btn-outline" id="copy-svg-btn" onclick="copySVG()">Copy SVG</button>
       </div>
     </div>
-    <div id="dl-status" class="dl-status" style="padding:0 14px;display:none;">&#10003; File ready &mdash; check your Downloads folder</div>
+    <div id="dl-note" class="dl-note">&#10003; Preparing download...</div>
     <div class="preview-canvas" id="preview-canvas">
       <div class="placeholder">
         <div class="ph-icon">&#128444;</div>
-        <div class="ph-text">Fill in product details, pick a layout &amp; color, then click <strong>Generate Listing Image</strong></div>
+        <div class="ph-text">Fill in your product details, pick a layout &amp; color scheme, then click <strong>Generate Listing Image</strong></div>
       </div>
     </div>
   </div>
@@ -201,110 +247,262 @@ Fully Personalized Text</textarea>
 
 <script>
 // =====================================================================
+// BADGE CATEGORIES  (fix #3)
+// =====================================================================
+const BADGE_CATS = {
+  "Universal": [
+    "Instant Download","Personalized","Free Revisions","Best Seller",
+    "New Arrival","Award Winner","Gift Ready","Limited Edition",
+    "Eco Friendly","Made with Love"
+  ],
+  "Digital Downloads": [
+    "Print Ready","High-Res 300 DPI","PDF Included","JPG + PNG Included",
+    "ZIP Bundle","Canva Editable","Commercial License","No Subscription Needed",
+    "Edit in Canva","Lifetime Access"
+  ],
+  "Physical Books": [
+    "Signed Copy Available","Paperback","Hardcover","Full Color Interior",
+    "Ages 0-4","Ages 5-9","Ages 9-13","Adult Coloring","KDP Published",
+    "Amazon Available","Autographed Option"
+  ],
+  "AI App / URL": [
+    "Free to Use","Free Tier Available","Paid Pro Access","Subscription Access",
+    "No App Download","Works in Browser","Mobile Friendly","Instant Access",
+    "Beginner Friendly","Step-by-Step Guide","Video Tutorial Included",
+    "Claude Powered","AI-Assisted","Prompt Included"
+  ],
+  "Health / Wellness": [
+    "Alpha-Gal Safe","Mammal-Free","Dairy-Free","Gluten-Free Option",
+    "Clean Eating","Garden to Table","AGS Compliant","Allergy Friendly",
+    "Chemo-Supportive","Nutritionist Reviewed"
+  ]
+};
+
+// =====================================================================
+// IMAGE SHAPES  (fix #4)
+// =====================================================================
+const SHAPES = [
+  {id:"square",   label:"Square",    ratio:"1:1",   w:54, h:54},
+  {id:"portrait4",label:"Portrait",  ratio:"4:5",   w:43, h:54},
+  {id:"portrait2",label:"Portrait",  ratio:"2:3",   w:36, h:54},
+  {id:"landscape",label:"Landscape", ratio:"5:4",   w:54, h:43},
+];
+
+// =====================================================================
 // COLOR SCHEMES
 // =====================================================================
-const SCHEMES = {
-  // ---- CLASSIC ----
-  forest:  {id:"forest",  label:"Forest Green",   group:"classic", hdr:"#2D6A4F",acc:"#D4A96A",bg:"#FDF8F2",lgt:"#E1F5EE",mid:"#1D9E75",txt:"#3D2B1F"},
-  purple:  {id:"purple",  label:"Royal Purple",   group:"classic", hdr:"#7A1FA0",acc:"#C878E0",bg:"#FDF8F2",lgt:"#F3E5F9",mid:"#9B2DB5",txt:"#3D2B1F"},
-  gold:    {id:"gold",    label:"Warm Gold",      group:"classic", hdr:"#A0720A",acc:"#D4A96A",bg:"#FDF8F2",lgt:"#FDF0D5",mid:"#C08B3A",txt:"#3D2B1F"},
-  navy:    {id:"navy",    label:"Deep Navy",      group:"classic", hdr:"#1A3A6B",acc:"#85B7EB",bg:"#F4F8FD",lgt:"#E6F1FB",mid:"#2A5FA0",txt:"#1A2C42"},
-  coral:   {id:"coral",   label:"Festive Coral",  group:"classic", hdr:"#C0392B",acc:"#F0997B",bg:"#FDF8F2",lgt:"#FDECEA",mid:"#E74C3C",txt:"#3D2B1F"},
-  teal:    {id:"teal",    label:"Ocean Teal",     group:"classic", hdr:"#0A7B7B",acc:"#5DCAA5",bg:"#F0FDFA",lgt:"#CCFAF4",mid:"#14B8A6",txt:"#134E4A"},
-  darkbrown:{id:"darkbrown",label:"Dark Brown",   group:"classic", hdr:"#3D2B1F",acc:"#C4A882",bg:"#FDF8F2",lgt:"#F0E4D4",mid:"#7A5C3E",txt:"#1C1009"},
-  slate:   {id:"slate",   label:"Neutral Slate",  group:"classic", hdr:"#3A3A3A",acc:"#9A9A9A",bg:"#F5F5F5",lgt:"#EBEBEB",mid:"#666",   txt:"#222"},
-  // ---- PASTEL ----
-  pbaby:   {id:"pbaby",   label:"Pastel Baby Blue",group:"pastel", hdr:"#6AAED6",acc:"#FAD6A5",bg:"#F0F8FF",lgt:"#D6EEFF",mid:"#4A90C4",txt:"#1A3550"},
-  pmint:   {id:"pmint",   label:"Pastel Mint",    group:"pastel", hdr:"#6DC8A0",acc:"#F9E4B7",bg:"#F0FDF7",lgt:"#C8F0E0",mid:"#3DA87A",txt:"#1A3D2B"},
-  ppink:   {id:"ppink",   label:"Pastel Rose",    group:"pastel", hdr:"#E89BB4",acc:"#FAE0C8",bg:"#FFF5F8",lgt:"#FCE0EA",mid:"#D4607E",txt:"#4B1A28"},
-  plilac:  {id:"plilac",  label:"Pastel Lilac",   group:"pastel", hdr:"#B49FCC",acc:"#F5D6FA",bg:"#FAF5FF",lgt:"#EDE0FA",mid:"#8A6CB0",txt:"#2E1A50"},
-  ppeach:  {id:"ppeach",  label:"Pastel Peach",   group:"pastel", hdr:"#E8A87C",acc:"#FAE0B8",bg:"#FFF8F3",lgt:"#FDEBD8",mid:"#D4784A",txt:"#4B2210"},
-  psage:   {id:"psage",   label:"Pastel Sage",    group:"pastel", hdr:"#8AAE92",acc:"#EAD9BE",bg:"#F5FAF5",lgt:"#D8EDDC",mid:"#5A8A64",txt:"#1E3824"},
-  ltbrown: {id:"ltbrown", label:"Light Tan/Brown", group:"pastel", hdr:"#C4A882",acc:"#EAD9BE",bg:"#FDF8F2",lgt:"#F5EDD8",mid:"#A07848",txt:"#3D2B1F"},
-  pcream:  {id:"pcream",  label:"Pastel Cream",   group:"pastel", hdr:"#C8B090",acc:"#E8D4A8",bg:"#FDFAF4",lgt:"#F5EDDA",mid:"#A89060",txt:"#3C2C14"},
+const SCHEMES={
+  forest:  {id:"forest",  label:"Forest Green",  group:"classic",hdr:"#2D6A4F",acc:"#D4A96A",bg:"#FDF8F2",lgt:"#E1F5EE",mid:"#1D9E75",txt:"#3D2B1F"},
+  purple:  {id:"purple",  label:"Royal Purple",  group:"classic",hdr:"#7A1FA0",acc:"#C878E0",bg:"#FDF8F2",lgt:"#F3E5F9",mid:"#9B2DB5",txt:"#3D2B1F"},
+  gold:    {id:"gold",    label:"Warm Gold",     group:"classic",hdr:"#A0720A",acc:"#D4A96A",bg:"#FDF8F2",lgt:"#FDF0D5",mid:"#C08B3A",txt:"#3D2B1F"},
+  navy:    {id:"navy",    label:"Deep Navy",     group:"classic",hdr:"#1A3A6B",acc:"#85B7EB",bg:"#F4F8FD",lgt:"#E6F1FB",mid:"#2A5FA0",txt:"#1A2C42"},
+  coral:   {id:"coral",   label:"Festive Coral", group:"classic",hdr:"#C0392B",acc:"#F0997B",bg:"#FDF8F2",lgt:"#FDECEA",mid:"#E74C3C",txt:"#3D2B1F"},
+  teal:    {id:"teal",    label:"Ocean Teal",    group:"classic",hdr:"#0A7B7B",acc:"#5DCAA5",bg:"#F0FDFA",lgt:"#CCFAF4",mid:"#14B8A6",txt:"#134E4A"},
+  darkbrown:{id:"darkbrown",label:"Dark Brown",  group:"classic",hdr:"#3D2B1F",acc:"#C4A882",bg:"#FDF8F2",lgt:"#F0E4D4",mid:"#7A5C3E",txt:"#1C1009"},
+  slate:   {id:"slate",   label:"Neutral Slate", group:"classic",hdr:"#3A3A3A",acc:"#9A9A9A",bg:"#F5F5F5",lgt:"#EBEBEB",mid:"#666",   txt:"#222"},
+  pbaby:   {id:"pbaby",   label:"Pastel Blue",   group:"pastel", hdr:"#6AAED6",acc:"#FAD6A5",bg:"#F0F8FF",lgt:"#D6EEFF",mid:"#4A90C4",txt:"#1A3550"},
+  pmint:   {id:"pmint",   label:"Pastel Mint",   group:"pastel", hdr:"#6DC8A0",acc:"#F9E4B7",bg:"#F0FDF7",lgt:"#C8F0E0",mid:"#3DA87A",txt:"#1A3D2B"},
+  ppink:   {id:"ppink",   label:"Pastel Rose",   group:"pastel", hdr:"#E89BB4",acc:"#FAE0C8",bg:"#FFF5F8",lgt:"#FCE0EA",mid:"#D4607E",txt:"#4B1A28"},
+  plilac:  {id:"plilac",  label:"Pastel Lilac",  group:"pastel", hdr:"#B49FCC",acc:"#F5D6FA",bg:"#FAF5FF",lgt:"#EDE0FA",mid:"#8A6CB0",txt:"#2E1A50"},
+  ppeach:  {id:"ppeach",  label:"Pastel Peach",  group:"pastel", hdr:"#E8A87C",acc:"#FAE0B8",bg:"#FFF8F3",lgt:"#FDEBD8",mid:"#D4784A",txt:"#4B2210"},
+  psage:   {id:"psage",   label:"Pastel Sage",   group:"pastel", hdr:"#8AAE92",acc:"#EAD9BE",bg:"#F5FAF5",lgt:"#D8EDDC",mid:"#5A8A64",txt:"#1E3824"},
+  ltbrown: {id:"ltbrown", label:"Light Tan",     group:"pastel", hdr:"#C4A882",acc:"#EAD9BE",bg:"#FDF8F2",lgt:"#F5EDD8",mid:"#A07848",txt:"#3D2B1F"},
+  pcream:  {id:"pcream",  label:"Pastel Cream",  group:"pastel", hdr:"#C8B090",acc:"#E8D4A8",bg:"#FDFAF4",lgt:"#F5EDDA",mid:"#A89060",txt:"#3C2C14"},
 };
 
 const PLATFORMS={etsy:{label:"Etsy",max:10,size:"2000x2000"},ebay:{label:"eBay",max:12,size:"1600x1600"},website:{label:"Website",max:5,size:"1920x800"}};
-const PSPECS={etsy:[{slot:"Main Listing Image",sz:"2000x2000px",ratio:"1:1",tip:"Shown in search -- most critical shot"},{slot:"What's Included",sz:"2000x2000px",ratio:"1:1",tip:"Checklist of every item in download"},{slot:"How It Works",sz:"2000x2000px",ratio:"1:1",tip:"3-step purchase/download process"},{slot:"Variants / Sizes",sz:"2000x2000px",ratio:"1:1",tip:"All color or style options"},{slot:"Lifestyle Mockup",sz:"2000x2000px",ratio:"1:1",tip:"Product shown in real-world context"},{slot:"Images 6-10",sz:"2000x2000px",ratio:"1:1",tip:"Detail, zoom, reviews, FAQ, brand story"}],ebay:[{slot:"Main Photo",sz:"1600x1600px",ratio:"1:1",tip:"Min 1600px; up to 9000px for zoom"},{slot:"Additional Photos 2-12",sz:"1600x1600px",ratio:"1:1",tip:"Up to 12 free with most plans"},{slot:"Gallery Zoom",sz:"1600px+ short side",ratio:"Any",tip:"Higher res = better buyer trust"}],website:[{slot:"Hero / Banner",sz:"1920x800px",ratio:"~2.4:1",tip:"Full-width homepage feature image"},{slot:"Product Thumbnail",sz:"800x800px",ratio:"1:1",tip:"Used in catalog/grid views"},{slot:"Product Detail",sz:"1200x1200px",ratio:"1:1",tip:"Main large image on product page"},{slot:"Social Share (OG)",sz:"1200x630px",ratio:"1.91:1",tip:"Shown when shared on Facebook/X"},{slot:"Pinterest Pin",sz:"1000x1500px",ratio:"2:3",tip:"Tall vertical performs best on Pinterest"}]};
-const PTIPS={etsy:["Image 1 is shown in search -- invest most design time here","Use all 10 slots -- more images = better conversion","Add RLBDesigns watermark at 30% opacity on all images","FREE PERSONALIZATION badge is a major conversion driver","Image 3 (How It Works) reduces buyer questions and disputes"],ebay:["eBay allows up to 9000px -- higher res builds more trust","White backgrounds perform best in eBay search grid","Show size/scale with a reference object for physical products","Include condition and format details in at least one image"],website:["Hero banner: clear headline, one CTA, high contrast","Always generate an OG image (1200x630) for social sharing","Pinterest pins drive real traffic -- create tall 2:3 versions","Compress all images to under 200KB for page speed (use TinyPNG)"]};
-const LAYOUTS=[{id:"hero",name:"Hero / Main",desc:"Product + title + badges"},{id:"includes",name:"What's Included",desc:"Feature checklist"},{id:"process",name:"How It Works",desc:"3-step process"},{id:"bundle",name:"Bundle / Variants",desc:"Multiple options"},{id:"lifestyle",name:"Lifestyle",desc:"Mood & real-world use"},{id:"closeup",name:"Detail Close-Up",desc:"Highlight one feature"}];
+const PSPECS={
+  etsy:[{slot:"Main Listing Image",sz:"2000x2000px",ratio:"1:1",tip:"Shown in search - most critical shot"},{slot:"What's Included",sz:"2000x2000px",ratio:"1:1",tip:"Checklist of every item in download"},{slot:"How It Works",sz:"2000x2000px",ratio:"1:1",tip:"3-step purchase/download process"},{slot:"Variants / Sizes",sz:"2000x2000px",ratio:"1:1",tip:"All color or style options"},{slot:"Lifestyle Mockup",sz:"2000x2000px",ratio:"1:1",tip:"Product shown in real-world context"},{slot:"Images 6-10",sz:"2000x2000px",ratio:"1:1",tip:"Detail, zoom, reviews, FAQ, brand story"}],
+  ebay:[{slot:"Main Photo",sz:"1600x1600px",ratio:"1:1",tip:"Min 1600px; up to 9000px for zoom"},{slot:"Additional Photos 2-12",sz:"1600x1600px",ratio:"1:1",tip:"Up to 12 free with most plans"},{slot:"Gallery Zoom",sz:"1600px+ short side",ratio:"Any",tip:"Higher res = better buyer trust"}],
+  website:[{slot:"Hero / Banner",sz:"1920x800px",ratio:"~2.4:1",tip:"Full-width homepage feature image"},{slot:"Product Thumbnail",sz:"800x800px",ratio:"1:1",tip:"Used in catalog/grid views"},{slot:"Product Detail",sz:"1200x1200px",ratio:"1:1",tip:"Main large image on product page"},{slot:"Social Share (OG)",sz:"1200x630px",ratio:"1.91:1",tip:"Shown when shared on Facebook/X"},{slot:"Pinterest Pin",sz:"1000x1500px",ratio:"2:3",tip:"Tall vertical performs best on Pinterest"}]
+};
+const PTIPS={
+  etsy:["Image 1 shown in search - invest the most design time here","Use all 10 slots - more images = better conversion","Add RLBDesigns watermark at 30% opacity on all images","FREE PERSONALIZATION badge is a major conversion driver","Image 3 (How It Works) reduces buyer questions and disputes"],
+  ebay:["eBay allows up to 9000px - higher res builds more trust","White backgrounds perform best in eBay search grid","Show size/scale with a reference object for physical products","Include condition and format details in at least one image"],
+  website:["Hero banner: clear headline, one CTA, high contrast","Always generate an OG image (1200x630) for social sharing","Pinterest pins drive real traffic - create tall 2:3 versions","Compress all images under 200KB for page speed (use TinyPNG)"]
+};
+const LAYOUTS=[
+  {id:"hero",name:"Hero / Main",desc:"Product + title + badges"},
+  {id:"includes",name:"What's Included",desc:"Feature checklist"},
+  {id:"process",name:"How It Works",desc:"3-step process"},
+  {id:"bundle",name:"Bundle / Variants",desc:"Multiple options"},
+  {id:"lifestyle",name:"Lifestyle",desc:"Mood & real-world use"},
+  {id:"closeup",name:"Detail Close-Up",desc:"Highlight one feature"}
+];
 const LAYOUT_ICONS={hero:"&#128444;",includes:"&#9776;",process:"&#8635;",bundle:"&#128230;",lifestyle:"&#10024;",closeup:"&#128269;"};
-const ALL_BADGES=["Instant Download","Personalized","Free Revisions","Bundle Deal","Best Seller","New Arrival","Print Ready","Alpha-Gal Safe","Ages 0-4","Ages 5-9","Ages 9-13","Award Winner","Eco Friendly","Gift Ready"];
 
-const ST={platform:"etsy",layout:"hero",scheme:"forest",badges:["Instant Download","Personalized"],generated:false,specViewed:false,svgContent:""};
+const ST={
+  platform:"etsy", layout:"hero", scheme:"forest",
+  badges:["Instant Download","Personalized"],
+  generated:false, specViewed:false, svgContent:"",
+  badgeCat:"Universal", imgShape:"square"
+};
+
+const LF={
+  hero:{}, includes:{},
+  process:{step1label:"Purchase",step1desc:"Add to cart & checkout",step2label:"Send Details",step2desc:"Message us your info",step3label:"Get Files",step3desc:"Download in minutes",cta:"Get Yours Today"},
+  bundle:{opt1label:"Single",opt1desc:"1 Design - Standard",opt1price:"",opt2label:"Bundle",opt2desc:"Both Designs - Save 30%",opt2price:"$6.99",opt2badge:"BEST VALUE"},
+  lifestyle:{tagline:"Perfect for every occasion"},
+  closeup:{feat1:"High-resolution artwork",feat2:"Professional typography",feat3:"Crisp print-ready quality",feat4:"Watercolor illustration",cta:"Add to Cart"}
+};
 
 // =====================================================================
 // INIT
 // =====================================================================
 (function init(){
-  // Badges
-  const br=document.getElementById("badge-row");
-  ALL_BADGES.forEach(b=>{
+  // Badge category tabs
+  const catTabsEl=document.getElementById("badge-cat-tabs");
+  Object.keys(BADGE_CATS).forEach((cat,i)=>{
     const d=document.createElement("div");
-    d.className="badge"+(ST.badges.includes(b)?" on":"");
-    d.textContent=b;
-    d.onclick=()=>{d.classList.toggle("on");const i=ST.badges.indexOf(b);if(d.classList.contains("on")){if(i<0)ST.badges.push(b);}else{if(i>=0)ST.badges.splice(i,1);}};
-    br.appendChild(d);
+    d.className="bct"+(i===0?" on":"");
+    d.textContent=cat;
+    d.onclick=()=>{
+      document.querySelectorAll(".bct").forEach(b=>b.classList.remove("on"));
+      d.classList.add("on");ST.badgeCat=cat;renderBadges();
+    };
+    catTabsEl.appendChild(d);
   });
-  // Layouts
+  renderBadges();
+
+  // Layout cards
   const lg=document.getElementById("layout-grid");
   LAYOUTS.forEach((l,i)=>{
     const d=document.createElement("div");
     d.className="lcard"+(i===0?" on":"");
-    d.innerHTML='<div class="lc-icon">'+(LAYOUT_ICONS[l.id]||"?")+'</div><div class="lc-name">'+l.name+'</div><div class="lc-desc">'+l.desc+'</div>';
-    d.onclick=()=>{document.querySelectorAll(".lcard").forEach(c=>c.classList.remove("on"));d.classList.add("on");ST.layout=l.id;updateLabel();};
+    d.innerHTML='<div class="lc-icon">'+(LAYOUT_ICONS[l.id]||"")+'</div><div class="lc-name">'+l.name+'</div><div class="lc-desc">'+l.desc+'</div>';
+    d.onclick=()=>{document.querySelectorAll(".lcard").forEach(c=>c.classList.remove("on"));d.classList.add("on");ST.layout=l.id;updateLabel();renderLayoutFields();};
     lg.appendChild(d);
   });
-  // Swatches by group
+
+  // Shape picker
+  const so=document.getElementById("shape-opts");
+  SHAPES.forEach(sh=>{
+    const d=document.createElement("div");
+    d.className="shape-opt"+(sh.id==="square"?" on":"");
+    d.dataset.id=sh.id;
+    d.innerHTML='<div class="shape-thumb" style="width:'+sh.w+'px;height:'+sh.h+'px;"></div>'
+      +'<div class="shape-lbl">'+sh.label+'</div>'
+      +'<div class="shape-ratio">'+sh.ratio+'</div>';
+    d.onclick=()=>{document.querySelectorAll(".shape-opt").forEach(s=>s.classList.remove("on"));d.classList.add("on");ST.imgShape=sh.id;};
+    so.appendChild(d);
+  });
+
   buildSwatchGroup("sw-classic","classic");
   buildSwatchGroup("sw-pastel","pastel");
+  renderLayoutFields();
   renderSpecs();
   renderChecklist();
 })();
 
-function buildSwatchGroup(containerId, group){
-  const container=document.getElementById(containerId);
+function renderBadges(){
+  const br=document.getElementById("badge-row");
+  br.innerHTML="";
+  (BADGE_CATS[ST.badgeCat]||[]).forEach(b=>{
+    const d=document.createElement("div");
+    d.className="badge"+(ST.badges.includes(b)?" on":"");
+    d.textContent=b;
+    d.onclick=()=>{
+      d.classList.toggle("on");
+      const i=ST.badges.indexOf(b);
+      if(d.classList.contains("on")){if(i<0)ST.badges.push(b);}
+      else{if(i>=0)ST.badges.splice(i,1);}
+    };
+    br.appendChild(d);
+  });
+}
+
+function onFormatChange(){renderChecklist();}
+
+function buildSwatchGroup(cid,group){
+  const c=document.getElementById(cid);
   Object.values(SCHEMES).filter(s=>s.group===group).forEach(sc=>{
     const d=document.createElement("div");
     d.className="sw"+(sc.id==="forest"?" on":"");
     d.style.background=sc.hdr;
     d.style.border="2px solid "+(isLight(sc.hdr)?"#AAA":"transparent");
     d.title=sc.label;
-    d.onclick=()=>{
-      document.querySelectorAll(".sw").forEach(s=>s.classList.remove("on"));
-      d.classList.add("on");
-      ST.scheme=sc.id;
-      document.getElementById("scheme-name").textContent=sc.label;
-    };
-    container.appendChild(d);
+    d.onclick=()=>{document.querySelectorAll(".sw").forEach(s=>s.classList.remove("on"));d.classList.add("on");ST.scheme=sc.id;document.getElementById("scheme-name").textContent=sc.label;};
+    c.appendChild(d);
   });
 }
+function isLight(h){const r=parseInt(h.slice(1,3),16),g=parseInt(h.slice(3,5),16),b=parseInt(h.slice(5,7),16);return(r*299+g*587+b*114)/1000>160;}
 
-function isLight(hex){
-  const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
-  return (r*299+g*587+b*114)/1000>160;
+// =====================================================================
+// LAYOUT FIELDS
+// =====================================================================
+function fld(id,label,ph){
+  const val=getLFVal(id);
+  return '<label class="fl" style="margin-top:6px;">'+label+'</label>'
+    +'<input type="text" id="lf-'+id+'" placeholder="'+ph+'" value="'+esc(val)+'" oninput="savelfs()">';
+}
+function getLFVal(id){return LF[ST.layout]&&LF[ST.layout][id]!==undefined?LF[ST.layout][id]:"";}
+function savelfs(){
+  const lay=ST.layout;
+  document.querySelectorAll("[id^='lf-']").forEach(el=>{
+    LF[lay][el.id.replace("lf-","")]=el.value;
+  });
+}
+function liveV(id){const el=document.getElementById("lf-"+id);return el?el.value:(getLFVal(id));}
+
+function renderLayoutFields(){
+  const container=document.getElementById("layout-fields");
+  const lay=ST.layout;
+  let html='<div class="lf-title">&#9998; Edit '+LAYOUTS.find(l=>l.id===lay)?.name+' Content</div>';
+  if(lay==="hero"||lay==="includes"){
+    html+='<div style="font-size:10px;color:#7A5C3E;font-style:italic;">Title, subtitle and What\'s Included fields above control this layout.</div>';
+  } else if(lay==="process"){
+    html+=fld("step1label","Step 1 Label","Purchase")+fld("step1desc","Step 1 Detail","Add to cart & checkout");
+    html+=fld("step2label","Step 2 Label","Send Details")+fld("step2desc","Step 2 Detail","Message us your info");
+    html+=fld("step3label","Step 3 Label","Get Files")+fld("step3desc","Step 3 Detail","Download in minutes");
+    html+=fld("cta","CTA Button Text","Get Yours Today");
+  } else if(lay==="bundle"){
+    html+='<div style="font-size:10px;color:#7A5C3E;margin-bottom:5px;font-style:italic;">Left card (Option 1)</div>';
+    html+=fld("opt1label","Label","Single")+fld("opt1desc","Description","1 Design - Standard")+fld("opt1price","Price","$4.99");
+    html+='<div style="font-size:10px;color:#7A5C3E;margin:8px 0 4px;font-style:italic;">Right card (Option 2 - Best Value)</div>';
+    html+=fld("opt2label","Label","Bundle")+fld("opt2desc","Description","Both Designs - Save 30%")+fld("opt2price","Price","$6.99")+fld("opt2badge","Badge Text","BEST VALUE");
+  } else if(lay==="lifestyle"){
+    html+='<div style="font-size:10px;color:#7A5C3E;margin-bottom:4px;font-style:italic;">Title &amp; subtitle above control main text.</div>';
+    html+=fld("tagline","Extra Tagline","Perfect for every occasion");
+  } else if(lay==="closeup"){
+    html+=fld("feat1","Feature 1","High-resolution artwork")+fld("feat2","Feature 2","Professional typography");
+    html+=fld("feat3","Feature 3","Crisp print-ready quality")+fld("feat4","Feature 4","Watercolor illustration");
+    html+=fld("cta","CTA Button Text","Add to Cart");
+  }
+  container.innerHTML=html;
 }
 
+// =====================================================================
+// HELPERS
+// =====================================================================
 function setPlatform(el){document.querySelectorAll(".ptab").forEach(t=>t.classList.remove("on"));el.classList.add("on");ST.platform=el.dataset.p;updateLabel();renderSpecs();renderChecklist();}
 function setTab(el){document.querySelectorAll(".mtab").forEach(t=>t.classList.remove("on"));el.classList.add("on");["build","specs","checklist"].forEach(id=>document.getElementById("tab-"+id).classList.toggle("hidden",el.dataset.t!==id));}
-function updateLabel(){document.getElementById("preview-label").textContent="Preview · "+PLATFORMS[ST.platform].label+" · "+(LAYOUTS.find(l=>l.id===ST.layout)?.name||"");}
+function updateLabel(){document.getElementById("preview-label").textContent="Preview \u00b7 "+PLATFORMS[ST.platform].label+" \u00b7 "+(LAYOUTS.find(l=>l.id===ST.layout)?.name||"");}
 function esc(s){return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
 function v(id){return document.getElementById(id)?.value||"";}
+function trunc(s,n){s=String(s||"");return s.length>n?s.slice(0,n-1)+"...":s;}
+
+// Get image placeholder dims based on selected shape, scaled to fit SVG
+function imgDims(maxW,maxH){
+  const sh=SHAPES.find(s=>s.id===ST.imgShape)||SHAPES[0];
+  const ratio=sh.w/sh.h;
+  let w=maxW,h=maxW/ratio;
+  if(h>maxH){h=maxH;w=maxH*ratio;}
+  return{w:Math.round(w),h:Math.round(h)};
+}
 
 // =====================================================================
 // SVG BUILDERS
 // =====================================================================
-function wrap(c,title,sub,body,h){
+function wrapSVG(c,title,sub,body,h){
   h=h||500;
   return '<svg width="580" height="'+h+'" viewBox="0 0 580 '+h+'" xmlns="http://www.w3.org/2000/svg">'
     +'<rect width="580" height="'+h+'" fill="'+c.bg+'" rx="10"/>'
-    +'<rect width="580" height="56" fill="'+c.hdr+'" rx="10"/>'
-    +'<rect y="44" width="580" height="12" fill="'+c.hdr+'"/>'
-    +'<text x="290" y="21" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="'+c.acc+'" letter-spacing="2.5">* RLBDESIGNS.COM *</text>'
-    +'<text x="290" y="42" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#fff">AUTHOR - DESIGNER - PUBLISHER</text>'
-    +'<text x="290" y="87" text-anchor="middle" font-family="Georgia,serif" font-size="20" font-weight="bold" fill="'+c.txt+'">'+esc(title)+'</text>'
-    +'<text x="290" y="109" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="'+c.mid+'" font-style="italic">'+esc(sub)+'</text>'
-    +'<line x1="60" y1="120" x2="520" y2="120" stroke="'+c.acc+'" stroke-width="0.8"/>'
+    +'<rect width="580" height="52" fill="'+c.hdr+'" rx="10"/>'
+    +'<rect y="40" width="580" height="12" fill="'+c.hdr+'"/>'
+    +'<text x="290" y="32" text-anchor="middle" font-family="Georgia,serif" font-size="17" font-weight="bold" fill="'+c.acc+'" letter-spacing="3">RLBDESIGNS.COM</text>'
+    +'<text x="290" y="80" text-anchor="middle" font-family="Georgia,serif" font-size="20" font-weight="bold" fill="'+c.txt+'">'+esc(title)+'</text>'
+    +'<text x="290" y="102" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="'+c.mid+'" font-style="italic">'+esc(sub)+'</text>'
+    +'<line x1="60" y1="114" x2="520" y2="114" stroke="'+c.acc+'" stroke-width="0.8"/>'
     +body
     +'<rect y="'+(h-20)+'" width="580" height="20" fill="'+c.hdr+'"/>'
     +'<text x="290" y="'+(h-7)+'" text-anchor="middle" font-family="Georgia,serif" font-size="8" fill="'+c.acc+'" letter-spacing="2">PERSONALIZED - PRINTABLE - INSTANT DOWNLOAD</text>'
@@ -312,200 +510,210 @@ function wrap(c,title,sub,body,h){
 }
 
 function buildHero(c){
-  const lines=v("f-inc").split("\n").filter(Boolean).slice(0,4);
+  const lines=v("f-inc").split("\n").filter(Boolean).slice(0,6);
   const price=v("f-price");
-  const lineEls=lines.map((l,i)=>'<rect x="48" y="'+(165+i*37)+'" width="258" height="29" rx="5" fill="'+c.lgt+'" stroke="'+c.acc+'" stroke-width="0.6"/><text x="66" y="'+(184+i*37)+'" font-family="Georgia,serif" font-size="10" fill="'+c.txt+'">+ '+esc(l)+'</text>').join("");
-  const priceEl=price?'<rect x="366" y="162" width="162" height="44" rx="9" fill="'+c.acc+'"/><text x="447" y="179" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="'+c.txt+'">PRICE</text><text x="447" y="198" text-anchor="middle" font-family="Georgia,serif" font-size="21" font-weight="bold" fill="'+c.txt+'">'+esc(price)+'</text>':"";
-  const imgBox='<rect x="350" y="213" width="178" height="118" rx="7" fill="'+c.lgt+'" stroke="'+c.acc+'" stroke-width="1" stroke-dasharray="4,3"/><text x="439" y="266" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="'+c.mid+'" font-style="italic">[ Product Image ]</text><text x="439" y="282" text-anchor="middle" font-family="Georgia,serif" font-size="8" fill="'+c.mid+'">Drop artwork in Canva</text>';
-  const bdgs=ST.badges.slice(0,4).map((b,i)=>{const bx=48+(i%2)*158,by=345+Math.floor(i/2)*32;return '<rect x="'+bx+'" y="'+by+'" width="146" height="24" rx="12" fill="'+(i%2===0?c.hdr:c.mid)+'"/><text x="'+(bx+73)+'" y="'+(by+16)+'" text-anchor="middle" font-family="Georgia,serif" font-size="9" font-weight="bold" fill="#fff">'+esc(b)+'</text>';}).join("");
-  return wrap(c,v("f-title")||"Your Product Title",v("f-sub")||"Subtitle - Tagline - Key Feature",lineEls+priceEl+imgBox+bdgs);
+  const lineEls=lines.map((l,i)=>'<rect x="44" y="'+(124+i*33)+'" width="286" height="26" rx="5" fill="'+c.lgt+'" stroke="'+c.acc+'" stroke-width="0.6"/><text x="60" y="'+(141+i*33)+'" font-family="Georgia,serif" font-size="10" fill="'+c.txt+'">+ '+esc(trunc(l,38))+'</text>').join("");
+  const priceEl=price?'<rect x="350" y="122" width="182" height="44" rx="9" fill="'+c.acc+'"/><text x="441" y="140" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="'+c.txt+'">PRICE</text><text x="441" y="160" text-anchor="middle" font-family="Georgia,serif" font-size="22" font-weight="bold" fill="'+c.txt+'">'+esc(price)+'</text>':"";
+  // Image placeholder with correct shape
+  const dims=imgDims(182,140);
+  const ix=350+(182-dims.w)/2, iy=174+(140-dims.h)/2;
+  const imgBox='<rect x="350" y="174" width="182" height="140" rx="7" fill="'+c.lgt+'" stroke="'+c.acc+'" stroke-width="0.8"/>'
+    +'<rect x="'+ix+'" y="'+iy+'" width="'+dims.w+'" height="'+dims.h+'" rx="4" fill="'+c.mid+'" opacity="0.3" stroke="'+c.acc+'" stroke-width="1" stroke-dasharray="4,3"/>'
+    +'<text x="441" y="'+(iy+dims.h/2-6)+'" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="'+c.mid+'" font-style="italic">[ Product Image ]</text>'
+    +'<text x="441" y="'+(iy+dims.h/2+9)+'" text-anchor="middle" font-family="Georgia,serif" font-size="8" fill="'+c.mid+'">'+SHAPES.find(s=>s.id===ST.imgShape)?.ratio+' - Drop in Canva</text>';
+  const bdgs=ST.badges.slice(0,4).map((b,i)=>{const bx=44+(i%2)*150,by=328+Math.floor(i/2)*30;return '<rect x="'+bx+'" y="'+by+'" width="138" height="22" rx="11" fill="'+(i%2===0?c.hdr:c.mid)+'"/><text x="'+(bx+69)+'" y="'+(by+15)+'" text-anchor="middle" font-family="Georgia,serif" font-size="9" font-weight="bold" fill="#fff">'+esc(trunc(b,18))+'</text>';}).join("");
+  return wrapSVG(c,v("f-title")||"Your Product Title",v("f-sub")||"Subtitle - Tagline - Key Feature",lineEls+priceEl+imgBox+bdgs,408);
 }
+
 function buildIncludes(c){
-  const lines=v("f-inc").split("\n").filter(Boolean).slice(0,7);
-  const h=155+lines.length*50+40;
-  const body=lines.map((l,i)=>'<rect x="38" y="'+(144+i*50)+'" width="504" height="40" rx="7" fill="'+c.lgt+'" stroke="'+c.acc+'" stroke-width="0.6"/><circle cx="65" cy="'+(164+i*50)+'" r="11" fill="'+c.mid+'"/><text x="65" y="'+(168+i*50)+'" text-anchor="middle" font-family="Georgia,serif" font-size="10" font-weight="bold" fill="#fff">'+(i+1)+'</text><text x="86" y="'+(168+i*50)+'" font-family="Georgia,serif" font-size="11" fill="'+c.txt+'">  '+esc(l)+'</text>').join("");
-  return wrap(c,v("f-title")||"What's Included",v("f-sub")||"Everything in your download",body,h);
+  const lines=v("f-inc").split("\n").filter(Boolean).slice(0,8);
+  const h=130+lines.length*48+40;
+  const body=lines.map((l,i)=>'<rect x="32" y="'+(120+i*48)+'" width="516" height="38" rx="7" fill="'+c.lgt+'" stroke="'+c.acc+'" stroke-width="0.6"/><circle cx="58" cy="'+(139+i*48)+'" r="12" fill="'+c.mid+'"/><text x="58" y="'+(143+i*48)+'" text-anchor="middle" font-family="Georgia,serif" font-size="10" font-weight="bold" fill="#fff">'+(i+1)+'</text><text x="80" y="'+(143+i*48)+'" font-family="Georgia,serif" font-size="11" fill="'+c.txt+'">'+esc(trunc(l,55))+'</text>').join("");
+  return wrapSVG(c,v("f-title")||"What's Included",v("f-sub")||"Everything in your download",body,h);
 }
+
 function buildProcess(c){
-  const sl=["Purchase","Send Details","Get Files"],sd=["Add to cart + checkout","Message us your info","Download in minutes"];
+  savelfs();
+  const sl=[liveV("step1label")||"Purchase",liveV("step2label")||"Send Details",liveV("step3label")||"Get Files"];
+  const sd=[liveV("step1desc")||"Add to cart & checkout",liveV("step2desc")||"Message us your info",liveV("step3desc")||"Download in minutes"];
+  const ctaTxt=liveV("cta")||"Get Yours Today";
   let body="";
-  [97,287,477].forEach((x,i)=>{
-    body+='<circle cx="'+x+'" cy="233" r="50" fill="'+c.lgt+'" stroke="'+c.acc+'" stroke-width="1.4"/>'
-      +'<text x="'+x+'" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="'+c.txt+'">'+sl[i]+'</text>'
-      +'<text x="'+x+'" y="264" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="'+c.mid+'">'+sd[i]+'</text>';
-    if(i<2)body+='<text x="'+(x+93)+'" y="238" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="'+c.acc+'">&gt;</text>';
+  const cx=[90,290,490];
+  cx.forEach((x,i)=>{
+    body+='<circle cx="'+x+'" cy="200" r="56" fill="'+c.lgt+'" stroke="'+c.acc+'" stroke-width="1.5"/>'
+      +'<text x="'+x+'" y="192" text-anchor="middle" font-family="Georgia,serif" font-size="30" font-weight="bold" fill="'+c.hdr+'">'+(i+1)+'</text>'
+      +'<text x="'+x+'" y="215" text-anchor="middle" font-family="Georgia,serif" font-size="10" font-weight="bold" fill="'+c.txt+'">'+esc(trunc(sl[i],13))+'</text>'
+      +'<text x="'+x+'" y="272" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="'+c.mid+'">'+esc(trunc(sd[i],20))+'</text>';
+    if(i<2)body+='<text x="'+(x+73)+'" y="205" text-anchor="middle" font-family="Georgia,serif" font-size="18" fill="'+c.acc+'">&gt;&gt;</text>';
   });
-  body+='<rect x="190" y="305" width="200" height="38" rx="9" fill="'+c.hdr+'"/><text x="290" y="328" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-weight="bold" fill="#fff">Get Yours Today</text>';
-  return wrap(c,v("f-title")||"How It Works","Simple 3-step process - ready in minutes",body,388);
+  body+='<rect x="165" y="294" width="250" height="38" rx="9" fill="'+c.hdr+'"/>'
+    +'<text x="290" y="317" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-weight="bold" fill="#fff">'+esc(trunc(ctaTxt,28))+'</text>';
+  return wrapSVG(c,v("f-title")||"How It Works","Simple 3-step process - ready in minutes",body,365);
 }
+
 function buildBundle(c){
-  const price=v("f-price")||"$4.99";
-  let body='<rect x="276" y="122" width="266" height="20" rx="4" fill="'+c.mid+'"/><text x="409" y="136" text-anchor="middle" font-family="Georgia,serif" font-size="9" font-weight="bold" fill="#fff">BEST VALUE</text>';
-  [[38,218,"Single","1 Design - Standard",esc(price)],[276,266,"Bundle","Both Designs - Save 30%","$6.99"]].forEach(([x,w,label,desc,px],fi)=>{
-    body+='<rect x="'+x+'" y="144" width="'+w+'" height="200" rx="9" fill="'+c.lgt+'" stroke="'+(fi?c.mid:c.acc)+'" stroke-width="'+(fi?2:1)+'"/>'
-      +'<text x="'+(x+w/2)+'" y="184" text-anchor="middle" font-family="Georgia,serif" font-size="15" font-weight="bold" fill="'+c.txt+'">'+label+'</text>'
-      +'<text x="'+(x+w/2)+'" y="204" text-anchor="middle" font-family="Georgia,serif" font-size="10" fill="'+c.mid+'">'+desc+'</text>'
-      +'<text x="'+(x+w/2)+'" y="258" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="bold" fill="'+c.hdr+'">'+px+'</text>';
+  savelfs();
+  const o1l=liveV("opt1label")||"Single";
+  const o1d=liveV("opt1desc")||"1 Design - Standard";
+  const o1p=liveV("opt1price")||v("f-price")||"$4.99";
+  const o2l=liveV("opt2label")||"Bundle";
+  const o2d=liveV("opt2desc")||"Both Designs - Save 30%";
+  const o2p=liveV("opt2price")||"$6.99";
+  const o2b=liveV("opt2badge")||"BEST VALUE";
+  let body='<rect x="268" y="120" width="278" height="22" rx="4" fill="'+c.mid+'"/>'
+    +'<text x="407" y="135" text-anchor="middle" font-family="Georgia,serif" font-size="10" font-weight="bold" fill="#fff">'+esc(trunc(o2b,24))+'</text>';
+  [[32,228,o1l,o1d,o1p,false],[268,278,o2l,o2d,o2p,true]].forEach(([x,w,label,desc,px,feat])=>{
+    body+='<rect x="'+x+'" y="144" width="'+w+'" height="218" rx="9" fill="'+c.lgt+'" stroke="'+(feat?c.mid:c.acc)+'" stroke-width="'+(feat?"2":"1")+'"/>'
+      +'<text x="'+(x+w/2)+'" y="186" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="'+c.txt+'">'+esc(trunc(label,18))+'</text>'
+      +'<text x="'+(x+w/2)+'" y="208" text-anchor="middle" font-family="Georgia,serif" font-size="10" fill="'+c.mid+'">'+esc(trunc(desc,30))+'</text>'
+      +'<text x="'+(x+w/2)+'" y="268" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="bold" fill="'+c.hdr+'">'+esc(trunc(px,12))+'</text>';
   });
-  return wrap(c,v("f-title")||"Bundle and Save",v("f-sub")||"Choose the option right for you",body,388);
+  return wrapSVG(c,v("f-title")||"Bundle and Save",v("f-sub")||"Choose the option right for you",body,402);
 }
+
 function buildLifestyle(c){
-  const imgBox='<rect x="38" y="130" width="504" height="192" rx="9" fill="'+c.lgt+'" stroke="'+c.acc+'" stroke-width="1" stroke-dasharray="5,3"/><text x="290" y="210" text-anchor="middle" font-family="Georgia,serif" font-size="12" fill="'+c.mid+'" font-style="italic">[ Lifestyle Photo - drop in Canva ]</text><text x="290" y="230" text-anchor="middle" font-family="Georgia,serif" font-size="10" fill="'+c.mid+'">Show your product in a real-world setting</text>';
-  const bdgs=ST.badges.slice(0,3).map((b,i)=>'<rect x="'+(38+i*172)+'" y="340" width="158" height="26" rx="13" fill="'+c.hdr+'"/><text x="'+(117+i*172)+'" y="357" text-anchor="middle" font-family="Georgia,serif" font-size="10" font-weight="bold" fill="#fff">'+esc(b)+'</text>').join("");
-  return wrap(c,v("f-title")||"Your Product Title",v("f-sub")||"Personalized - Printable - Perfect Gift",imgBox+bdgs,404);
+  savelfs();
+  const tagline=liveV("tagline")||"Perfect for every occasion";
+  const dims=imgDims(512,196);
+  const ix=34+(512-dims.w)/2, iy=122+(196-dims.h)/2;
+  const imgBox='<rect x="34" y="122" width="512" height="196" rx="9" fill="'+c.lgt+'" stroke="'+c.acc+'" stroke-width="0.8"/>'
+    +'<rect x="'+ix+'" y="'+iy+'" width="'+dims.w+'" height="'+dims.h+'" rx="5" fill="'+c.mid+'" opacity="0.25" stroke="'+c.acc+'" stroke-width="1" stroke-dasharray="5,3"/>'
+    +'<text x="290" y="'+(iy+dims.h/2-6)+'" text-anchor="middle" font-family="Georgia,serif" font-size="12" fill="'+c.mid+'" font-style="italic">[ Lifestyle Photo - drop in Canva ]</text>'
+    +'<text x="290" y="'+(iy+dims.h/2+12)+'" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="'+c.mid+'">'+SHAPES.find(s=>s.id===ST.imgShape)?.ratio+' format</text>'
+    +'<text x="290" y="332" text-anchor="middle" font-family="Georgia,serif" font-size="10" fill="'+c.mid+'" font-style="italic">'+esc(trunc(tagline,55))+'</text>';
+  const bdgs=ST.badges.slice(0,3).map((b,i)=>'<rect x="'+(34+i*178)+'" y="348" width="164" height="26" rx="13" fill="'+c.hdr+'"/><text x="'+(116+i*178)+'" y="365" text-anchor="middle" font-family="Georgia,serif" font-size="10" font-weight="bold" fill="#fff">'+esc(trunc(b,20))+'</text>').join("");
+  return wrapSVG(c,v("f-title")||"Your Product Title",v("f-sub")||"Personalized - Printable - Perfect Gift",imgBox+bdgs,412);
 }
+
 function buildCloseup(c){
-  const feats=["High-resolution artwork","Professional typography","Crisp print-ready quality","Watercolor illustration"];
-  const imgBox='<rect x="36" y="130" width="252" height="228" rx="9" fill="'+c.lgt+'" stroke="'+c.acc+'" stroke-width="1.4" stroke-dasharray="5,3"/><text x="162" y="238" text-anchor="middle" font-family="Georgia,serif" font-size="10" fill="'+c.mid+'" font-style="italic">[ Zoomed detail ]</text><text x="162" y="256" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="'+c.mid+'">Place close-up in Canva</text>';
-  const fts=feats.map((f,i)=>'<text x="316" y="'+(183+i*29)+'" font-family="Georgia,serif" font-size="11" fill="'+c.txt+'">* '+esc(f)+'</text>').join("");
-  const cta='<rect x="316" y="315" width="226" height="36" rx="7" fill="'+c.hdr+'"/><text x="429" y="337" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#fff">Add to Cart</text>';
-  return wrap(c,v("f-title")||"Look at the Detail",v("f-sub")||"Quality you can see and feel",imgBox+fts+cta);
+  savelfs();
+  const feats=[liveV("feat1")||"High-resolution artwork",liveV("feat2")||"Professional typography",liveV("feat3")||"Crisp print-ready quality",liveV("feat4")||"Watercolor illustration"];
+  const ctaTxt=liveV("cta")||"Add to Cart";
+  const dims=imgDims(252,236);
+  const ix=32+(252-dims.w)/2, iy=122+(236-dims.h)/2;
+  const imgBox='<rect x="32" y="122" width="252" height="236" rx="9" fill="'+c.lgt+'" stroke="'+c.acc+'" stroke-width="1.2"/>'
+    +'<rect x="'+ix+'" y="'+iy+'" width="'+dims.w+'" height="'+dims.h+'" rx="4" fill="'+c.mid+'" opacity="0.25" stroke="'+c.acc+'" stroke-width="1" stroke-dasharray="4,3"/>'
+    +'<text x="158" y="'+(iy+dims.h/2-5)+'" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="'+c.mid+'" font-style="italic">[ Zoomed detail ]</text>'
+    +'<text x="158" y="'+(iy+dims.h/2+10)+'" text-anchor="middle" font-family="Georgia,serif" font-size="8" fill="'+c.mid+'">'+SHAPES.find(s=>s.id===ST.imgShape)?.ratio+'</text>';
+  const fts=feats.map((f,i)=>'<text x="306" y="'+(144+i*36)+'" font-family="Georgia,serif" font-size="11" fill="'+c.txt+'">* '+esc(trunc(f,30))+'</text>').join("");
+  const cta='<rect x="306" y="302" width="242" height="38" rx="7" fill="'+c.hdr+'"/><text x="427" y="325" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-weight="bold" fill="#fff">'+esc(trunc(ctaTxt,24))+'</text>';
+  return wrapSVG(c,v("f-title")||"Look at the Detail",v("f-sub")||"Quality you can see and feel",imgBox+fts+cta,370);
 }
 
 // =====================================================================
 // GENERATE
 // =====================================================================
 function generate(){
+  savelfs();
   const c=SCHEMES[ST.scheme];
   const builders={hero:buildHero,includes:buildIncludes,process:buildProcess,bundle:buildBundle,lifestyle:buildLifestyle,closeup:buildCloseup};
   ST.svgContent=(builders[ST.layout]||buildHero)(c);
   ST.generated=true;
-  // Show preview
   document.getElementById("preview-canvas").innerHTML='<div class="preview-wrap">'+ST.svgContent+'</div>';
-  // Wire SVG download link (pure data URI - no blob, no CSP issues)
-  const fname="RLBDesigns_"+(v("f-title")||"Listing").replace(/\s+/g,"_")+"_"+ST.platform;
-  const svgB64=btoa(unescape(encodeURIComponent(ST.svgContent)));
-  const svgLink=document.getElementById("svg-link");
-  svgLink.href="data:image/svg+xml;base64,"+svgB64;
-  svgLink.download=fname+".svg";
   document.getElementById("exp-btns").style.display="flex";
   renderChecklist();
-  showStatus();
-}
-
-function showStatus(){
-  const s=document.getElementById("dl-status");
-  s.style.display="block";
-  setTimeout(()=>s.style.display="none",4000);
 }
 
 // =====================================================================
-// JPG DOWNLOAD - uses Canvas then data URI (no blob URL needed)
+// DOWNLOADS
 // =====================================================================
+function getFilename(ext){return "RLBDesigns_"+(v("f-title")||"Listing").replace(/\s+/g,"_")+"_"+ST.platform+"."+ext;}
+
+function dlSVG(){
+  if(!ST.svgContent){alert("Please generate an image first.");return;}
+  try{
+    const b64=btoa(unescape(encodeURIComponent(ST.svgContent)));
+    const a=document.createElement("a");
+    a.href="data:image/svg+xml;base64,"+b64;
+    a.download=getFilename("svg");
+    a.style.display="none";
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(()=>document.body.removeChild(a),300);
+    showNote("SVG downloading...");
+  }catch(e){alert("SVG download error: "+e.message);}
+}
+
 function dlJPG(){
-  if(!ST.svgContent){alert("Generate an image first.");return;}
+  if(!ST.svgContent){alert("Please generate an image first.");return;}
   const btn=document.getElementById("jpg-btn");
   btn.textContent="Working...";btn.disabled=true;
-
-  // Use an Image + offscreen Canvas
-  const img=new Image();
-  // data URI approach - avoids all blob/CSP issues
-  const svgB64=btoa(unescape(encodeURIComponent(ST.svgContent)));
-  img.onload=function(){
-    try{
-      const vb=ST.svgContent.match(/viewBox="0 0 (\d+) (\d+)"/);
-      const sw=vb?parseInt(vb[1]):580, sh=vb?parseInt(vb[2]):500;
-      const scale=3;
-      const canvas=document.createElement("canvas");
-      canvas.width=sw*scale; canvas.height=sh*scale;
-      const ctx=canvas.getContext("2d");
-      ctx.fillStyle="#FFFFFF";
-      ctx.fillRect(0,0,canvas.width,canvas.height);
-      ctx.scale(scale,scale);
-      ctx.drawImage(img,0,0,sw,sh);
-      const jpgData=canvas.toDataURL("image/jpeg",0.95);
-      const a=document.createElement("a");
-      a.href=jpgData;
-      a.download="RLBDesigns_"+(v("f-title")||"Listing").replace(/\s+/g,"_")+"_"+ST.platform+".jpg";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      showStatus();
-    }catch(e){
-      alert("JPG export error: "+e.message+"\n\nTip: Use SVG download instead and open in Canva.");
-    }
-    btn.textContent="\u2193 JPG"; btn.disabled=false;
-  };
-  img.onerror=function(){
-    alert("Could not render image. Use SVG download instead.");
-    btn.textContent="\u2193 JPG"; btn.disabled=false;
-  };
-  img.src="data:image/svg+xml;base64,"+svgB64;
+  try{
+    const b64=btoa(unescape(encodeURIComponent(ST.svgContent)));
+    const img=new Image();
+    img.onload=function(){
+      try{
+        const m=ST.svgContent.match(/width="(\d+)" height="(\d+)"/);
+        const sw=m?parseInt(m[1]):580,sh=m?parseInt(m[2]):500;
+        const scale=3;
+        const canvas=document.createElement("canvas");
+        canvas.width=sw*scale;canvas.height=sh*scale;
+        const ctx=canvas.getContext("2d");
+        ctx.fillStyle="#FFFFFF";ctx.fillRect(0,0,canvas.width,canvas.height);
+        ctx.scale(scale,scale);ctx.drawImage(img,0,0,sw,sh);
+        const jpgData=canvas.toDataURL("image/jpeg",0.95);
+        const a=document.createElement("a");
+        a.href=jpgData;a.download=getFilename("jpg");
+        a.style.display="none";
+        document.body.appendChild(a);a.click();
+        setTimeout(()=>document.body.removeChild(a),300);
+        showNote("JPG downloading...");
+      }catch(e2){alert("JPG render error: "+e2.message);}
+      btn.textContent="\u2195 JPG";btn.disabled=false;
+    };
+    img.onerror=function(){alert("Image load failed. Try SVG download instead.");btn.textContent="\u2195 JPG";btn.disabled=false;};
+    img.src="data:image/svg+xml;base64,"+b64;
+  }catch(e){alert("JPG export error: "+e.message);btn.textContent="\u2195 JPG";btn.disabled=false;}
 }
 
-// =====================================================================
-// COPY SVG - uses modern clipboard API with textarea fallback
-// =====================================================================
 function copySVG(){
-  if(!ST.svgContent){alert("Generate an image first.");return;}
+  if(!ST.svgContent){alert("Please generate an image first.");return;}
   const btn=document.getElementById("copy-svg-btn");
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(ST.svgContent).then(()=>{
-      btn.textContent="Copied!";
-      setTimeout(()=>btn.textContent="Copy SVG",2000);
-    }).catch(()=>fallbackCopy(btn));
-  } else { fallbackCopy(btn); }
+  const doIt=()=>{
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(ST.svgContent).then(()=>{btn.textContent="Copied!";setTimeout(()=>btn.textContent="Copy SVG",2200);}).catch(fb);
+    }else{fb();}
+  };
+  const fb=()=>{
+    const ta=document.createElement("textarea");ta.value=ST.svgContent;ta.style.cssText="position:fixed;top:0;left:0;opacity:0;";
+    document.body.appendChild(ta);ta.focus();ta.select();
+    try{document.execCommand("copy");btn.textContent="Copied!";setTimeout(()=>btn.textContent="Copy SVG",2200);}
+    catch(e){alert("Copy failed. Use SVG download.");}
+    document.body.removeChild(ta);
+  };
+  doIt();
 }
-function fallbackCopy(btn){
-  const ta=document.createElement("textarea");
-  ta.value=ST.svgContent;
-  ta.style.position="fixed";ta.style.opacity="0";
-  document.body.appendChild(ta);ta.select();
-  try{document.execCommand("copy");btn.textContent="Copied!";setTimeout(()=>btn.textContent="Copy SVG",2000);}
-  catch(e){alert("Copy failed. Please use SVG download instead.");}
-  document.body.removeChild(ta);
+
+function showNote(msg){
+  const n=document.getElementById("dl-note");n.textContent=msg;n.style.display="block";
+  setTimeout(()=>n.style.display="none",3500);
 }
 
 // =====================================================================
-// CANVA SPEC
+// CANVA SPEC + COPY
 // =====================================================================
 function getSpec(){
   const c=SCHEMES[ST.scheme],pl=PLATFORMS[ST.platform];
   const ln=LAYOUTS.find(l=>l.id===ST.layout)?.name||ST.layout;
   const inc=(v("f-inc")||"[Your includes]").split("\n").map(l=>"  - "+l).join("\n");
-  const spec="CANVA BUILD SPEC -- RLBDesigns v1.2\n"
-    +"=".repeat(42)+"\n\n"
-    +"PLATFORM : "+pl.label+"\n"
-    +"CANVAS   : "+pl.size+" px\n"
-    +"LAYOUT   : "+ln+"\n\n"
-    +"-- COLORS --\n"
-    +"Header : "+c.hdr+"\n"
-    +"Accent : "+c.acc+"\n"
-    +"BG     : "+c.bg+"\n"
-    +"Text   : "+c.txt+"\n"
-    +"Mid    : "+c.mid+"\n"
-    +"Light  : "+c.lgt+"\n\n"
-    +"-- FONTS --\n"
-    +"Headings : Playfair Display Bold\n"
-    +"Body     : Lato Regular / Bold\n"
-    +"(Both free in Canva and Google Fonts)\n\n"
-    +"-- CONTENT --\n"
-    +"Title    : "+(v("f-title")||"[Title]")+"\n"
-    +"Subtitle : "+(v("f-sub")||"[Subtitle]")+"\n"
-    +"Price    : "+(v("f-price")||"[Price]")+"\n"
-    +"Includes :\n"+inc+"\n"
-    +"Badges   : "+ST.badges.join(", ")+"\n\n"
-    +"-- IMAGE SLOTS --\n"
-    +PSPECS[ST.platform].map((s,i)=>(i+1)+". "+s.slot+" ("+s.sz+") -- "+s.tip).join("\n");
+  const fmt=document.getElementById("f-format");
+  const fmtLabel=fmt.options[fmt.selectedIndex]?.text||"[Not selected]";
+  const spec="CANVA BUILD SPEC -- RLBDesigns v1.4\n"+"=".repeat(40)+"\n\n"
+    +"PLATFORM : "+pl.label+"\nCANVAS   : "+pl.size+" px\nLAYOUT   : "+ln+"\nFORMAT   : "+fmtLabel+"\n\n"
+    +"COLORS\nHeader : "+c.hdr+"\nAccent : "+c.acc+"\nBG     : "+c.bg+"\nText   : "+c.txt+"\nMid    : "+c.mid+"\nLight  : "+c.lgt+"\n\n"
+    +"FONTS\nHeadings : Playfair Display Bold\nBody     : Lato Regular / Bold\n\n"
+    +"CONTENT\nTitle    : "+(v("f-title")||"[Title]")+"\nSubtitle : "+(v("f-sub")||"[Subtitle]")+"\nPrice    : "+(v("f-price")||"[Price]")+"\nIncludes :\n"+inc+"\nBadges   : "+ST.badges.join(", ")+"\nImg Shape: "+ST.imgShape+"\n\n"
+    +"IMAGE SLOTS\n"+PSPECS[ST.platform].map((s,i)=>(i+1)+". "+s.slot+" ("+s.sz+") -- "+s.tip).join("\n");
   document.getElementById("spec-text").textContent=spec;
   document.getElementById("specbox").style.display="block";
-  ST.specViewed=true;
-  renderChecklist();
+  ST.specViewed=true;renderChecklist();
   document.getElementById("specbox").scrollIntoView({behavior:"smooth"});
 }
 function copySpec(){
   const txt=document.getElementById("spec-text").textContent;
   const btn=document.getElementById("copy-btn");
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(txt).then(()=>{btn.textContent="Copied!";setTimeout(()=>btn.textContent="Copy to Clipboard",2200);}).catch(()=>fallbackCopyText(txt,btn));
-  } else { fallbackCopyText(txt,btn); }
-}
-function fallbackCopyText(txt,btn){
-  const ta=document.createElement("textarea");ta.value=txt;ta.style.position="fixed";ta.style.opacity="0";
-  document.body.appendChild(ta);ta.select();
-  try{document.execCommand("copy");btn.textContent="Copied!";setTimeout(()=>btn.textContent="Copy to Clipboard",2200);}
-  catch(e){alert("Copy failed. Please select and copy the text manually.");}
-  document.body.removeChild(ta);
+  const fb=()=>{const ta=document.createElement("textarea");ta.value=txt;ta.style.cssText="position:fixed;top:0;left:0;opacity:0;";document.body.appendChild(ta);ta.focus();ta.select();try{document.execCommand("copy");btn.textContent="Copied!";setTimeout(()=>btn.textContent="Copy to Clipboard",2200);}catch(e){alert("Copy failed.");}document.body.removeChild(ta);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(()=>{btn.textContent="Copied!";setTimeout(()=>btn.textContent="Copy to Clipboard",2200);}).catch(fb);}else{fb();}
 }
 
 // =====================================================================
@@ -519,10 +727,11 @@ function renderSpecs(){
   document.getElementById("tips-list").innerHTML=PTIPS[ST.platform].map(t=>"<li>"+t+"</li>").join("");
 }
 function renderChecklist(){
+  const fmt=document.getElementById("f-format");
   const checks=[
     {ok:!!v("f-title"),label:"Product title entered"},
-    {ok:!!v("f-price"),label:"Price set"},
-    {ok:!!v("f-format"),label:"Product format selected"},
+    {ok:!!v("f-price"),label:"Price set (or FREE)"},
+    {ok:fmt.selectedIndex>0,label:"Product format selected"},
     {ok:v("f-inc").trim().length>5,label:"What's Included items listed"},
     {ok:ST.badges.length>0,label:"At least one feature badge selected"},
     {ok:ST.generated,label:"Listing image generated"},
